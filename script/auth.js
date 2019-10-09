@@ -1,4 +1,15 @@
 
+//State change 
+
+// auth.onAuthStateChanged(function(user) {
+//     if (user) {
+//         console.log("User is signed in");
+//       // User is signed in.
+//     } else {
+//       // No user is signed in.
+//       console.log("No user is signed in");
+//     }
+//   });
 
 // sign up form
 const signupForm = document.querySelector('#signup-form');
@@ -7,13 +18,14 @@ signupForm.addEventListener('submit',(e)=>{
 
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;
+    const phoneNumber = signupForm['signup-phoneNumber'].value;
 
-    console.log("Signup form",email, password);
+    console.log("Signup form",email, password,phoneNumber);
     console.log("e",e);
     
 
     //Signup user 
-    auth.createUserWithEmailAndPassword(email,password).then(cred =>{
+    auth.createUserWithEmailAndPassword(email,password,phoneNumber).then(cred =>{
         console.log("cred", cred);
         const modal = document.querySelector('#modal-signup');
         M.Modal.getInstance(modal).close();
